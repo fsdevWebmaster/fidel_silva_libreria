@@ -1,3 +1,3 @@
 def call() {
-  sh "echo library call."
+  sh "echo Ejecución de las pruebas de calidad de código."
 }
