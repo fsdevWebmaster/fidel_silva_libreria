@@ -3,7 +3,9 @@ def call(abortPipeline = false) {
   sh "/usr/local/bin/sonar-scanner"
   timeout(time: 2, unit: "MINUTES") {
     sh "echo bulid url:: ${BUILD_URL}"
-    sh "echo branch:: ${BRANCH}"
+    if(${BRANCH} === "master" || ${BRANCH}.startsWith("hotfix")) {
+      abortPipeline = true
+    }
     // waitForQualityGate abortPipeline: false
     return abortPipeline
   }  
