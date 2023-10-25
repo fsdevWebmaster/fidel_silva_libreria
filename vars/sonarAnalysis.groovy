@@ -4,9 +4,7 @@ def call(abortPipeline = false) {
   timeout(time: 2, unit: "MINUTES") {
     sh "echo branch:: ${BRANCH}"
     def branch = ${BRANCH}
-    if(branch == "master") {
-      abortPipeline = true
-    }
+    sh "echo ${branch}"
     // waitForQualityGate abortPipeline: false
     return abortPipeline
   }  
