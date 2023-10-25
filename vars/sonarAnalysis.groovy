@@ -1,4 +1,4 @@
 def call() {
   sh "echo Ejecución de las pruebas de calidad de código."
-  sh sonar-scanner
+  sh "sonar-scanner"
 }
