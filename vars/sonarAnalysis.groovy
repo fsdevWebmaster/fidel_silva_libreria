@@ -3,7 +3,7 @@ def call(abortPipeline = false) {
   sh "/usr/local/bin/sonar-scanner"
   timeout(time: 2, unit: "MINUTES") {
     sh "echo bulid url:: ${BUILD_URL}" \
-    sh "echo build id:: ${JOB_ID}"
+    sh "echo build id:: ${BUILD_ID}"
     // waitForQualityGate abortPipeline: false
     return abortPipeline
   }  
