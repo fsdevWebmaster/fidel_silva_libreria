@@ -3,8 +3,6 @@ def call(abortPipeline = false) {
   sh "/usr/local/bin/sonar-scanner"
   timeout(time: 2, unit: "MINUTES") {
     sh "echo branch:: ${BRANCH}"
-    def branch = ${BRANCH}
-    sh "echo ${branch}"
     // waitForQualityGate abortPipeline: false
     return abortPipeline
   }  
