@@ -3,10 +3,11 @@ def call(abortPipeline = false) {
   sh "/usr/local/bin/sonar-scanner"
   timeout(time: 2, unit: "MINUTES") {
     sh "echo branch:: ${BRANCH}"
-    if(${BRANCH} == "master") {
+    def branch = ${BRANCH}
+    if(branch == "master") {
       abortPipeline = true
     }
-    if(${BRANCH}.startsWith("hotfix")) {
+    if(branch.startsWith("hotfix")) {
       abortPipeline = true
     }
     // waitForQualityGate abortPipeline: false
