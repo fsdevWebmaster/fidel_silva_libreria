@@ -7,9 +7,6 @@ def call(abortPipeline = false) {
     if(branch == "master") {
       abortPipeline = true
     }
-    if(branch.startsWith("hotfix")) {
-      abortPipeline = true
-    }
     // waitForQualityGate abortPipeline: false
     return abortPipeline
   }  
